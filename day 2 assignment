@@ -1,0 +1,25 @@
+create table employee(empfname varchar(20),empmname varchar(20),emplastname varchar(20),empage int check(empage between 25 and 50),empcity varchar(20) check(empcity like 'B%'),empdesignation varchar(20),empid varchar(5) check(empid like '_____')primary key,empdob date);
+insert into employee values('BheemiReddy','Geetha','Reddy',25,'Banglore','Product Manager',10001,to_date('2019/06/12', 'yyyy/mm/dd'));
+
+insert into employee values('Jhansi','Rani','Reddy',27,'Bihar','Account Manager',10002,to_date('2019/05/22', 'yyyy/mm/dd'));
+
+insert into employee values('Padma','Vathi','Kodathala',30,'Bellary','Team Manager',10003,to_date('2019/05/30', 'yyyy/mm/dd'));
+
+insert into employee values('Maya','Devi','Ananthagari',28,'Bilaspur','Staff Manager',10004,to_date('2019/12/20', 'yyyy/mm/dd'));
+
+insert into employee values('Ambati','Vijay','Raghavendra',44,'Bhopal','Functional Manager',10005,to_date('2019/11/18', 'yyyy/mm/dd'));
+
+update employee set empcity='Bhuvaneshwar' where empfname='Ambati';
+
+select * from employee;
+
+commit;
+
+delete from employee where empcity='Bhuvaneshwar';
+
+delete from employee;
+
+rollback;
+select * from employee;
+select empfname,empmname,emplastname,to_char(sysdate,'dd-mm-yyyy') from employee;
+select substr(empfname,1,1) || '.' ||substr(empmname,1,1)||  ' ' || emplastname from employee;
